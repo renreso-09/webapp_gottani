@@ -8,3 +8,14 @@ services:
       - ./src:/app
     ports:
       - "8080:8080"
+  storybook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: "yarn storybook"
+    ports:
+      - "6006:6006"
+    volumes:
+      - ./src:/app
+    environment:
+      - NODE_ENV=development
